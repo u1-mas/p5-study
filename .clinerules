@@ -56,30 +56,6 @@ twitter(現x.com)の連続ツイート補助ユーザースクリプト
 *   TypeScript
 *   TamperMonkey などのユーザースクリプト実行環境
 
-### プロジェクト構成
-
-```
-.
-├── .clinerules // clineの設定ファイル
-├── .gitignore // git管理から除外するファイルを記述
-├── biome.json // Biomeの設定ファイル
-├── package-lock.json // インストールしたパッケージのバージョンを固定
-├── package.json // プロジェクトの設定ファイル
-├── src/ // ソースコード
-│   ├── main.ts // メインファイル
-│   ├── components/ // コンポーネント
-│   ├── features/ // 機能
-│   │   ├── compose/ // 投稿機能
-│   │   └── monitor/ // 監視機能
-│   ├── state/ // 状態管理
-│   └── utils/ // ユーティリティ
-├── docs/ // ドキュメント
-│   └── templates/ // テンプレート
-├── tsconfig.json // TypeScriptの設定ファイル
-├── tsconfig.node.json
-└── vite.config.ts: Viteの設定ファイル
-```
-
 ### 詳細
 
 - ユーザースクリプトのヘッダー情報は `vite.config.ts` で管理されているため、`src/main.ts` へのヘッダー追加は不要。
