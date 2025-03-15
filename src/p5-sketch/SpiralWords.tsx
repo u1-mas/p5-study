@@ -17,9 +17,12 @@ const words = [
 const sketch: Sketch = (p5) => {
     const spiralWords: Word[] = [];
     const center = { x: 0, y: 0 };
+    let maxRadius: number;
 
     p5.setup = () => {
         p5.createCanvas(1200, 600);
+        // キャンバスの中心から端までの最大距離を計算（余白を確保）
+        maxRadius = Math.min(p5.width, p5.height) * 0.45;
         center.x = p5.width / 2;
         center.y = p5.height / 2;
 
@@ -28,7 +31,8 @@ const sketch: Sketch = (p5) => {
             spiralWords.push({
                 text: words[i],
                 angle: (p5.TWO_PI * i) / words.length,
-                radius: 50 + i * 20,  // より密な螺旋に
+                // 最大半径に収まるように調整
+                radius: 30 + (maxRadius - 30) * (i / words.length),
                 speed: 0.001 - (i * 0.00002),  // 速度差を微妙に
                 size: 16 + Math.sin(i * 0.5) * 4,  // サイズに波を付ける
             });
@@ -46,7 +50,9 @@ const sketch: Sketch = (p5) => {
             word.angle += word.speed;
             
             // 半径を時間に応じて変化
-            const currentRadius = word.radius + Math.sin(time + word.angle) * 20;
+            // 波の振幅を半径に応じて調整
+            const amplitude = word.radius * 0.1;
+            const currentRadius = word.radius + Math.sin(time + word.angle) * amplitude;
             
             // 位置を計算
             const x = center.x + Math.cos(word.angle) * currentRadius;
