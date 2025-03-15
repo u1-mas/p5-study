@@ -8,7 +8,11 @@ type Word = {
     size: number;
 };
 
-const words = ["創造", "想像", "表現", "感性", "芸術", "色彩", "デザイン", "調和"];
+const words = [
+    "創造", "想像", "表現", "感性", "芸術", "色彩", "デザイン", "調和",
+    "躍動", "静寂", "暖色", "寒色", "律動", "空間", "時間", "光影",
+    "形状", "質感", "動き", "変化", "心象", "自然", "抽象", "具象"
+];
 
 const sketch: Sketch = (p5) => {
     const spiralWords: Word[] = [];
@@ -24,9 +28,9 @@ const sketch: Sketch = (p5) => {
             spiralWords.push({
                 text: words[i],
                 angle: (p5.TWO_PI * i) / words.length,
-                radius: 50 + i * 30,
-                speed: 0.002 - i * 0.0001,
-                size: 20 + i * 2,
+                radius: 50 + i * 20,  // より密な螺旋に
+                speed: 0.001 - (i * 0.00002),  // 速度差を微妙に
+                size: 16 + Math.sin(i * 0.5) * 4,  // サイズに波を付ける
             });
         }
     };
