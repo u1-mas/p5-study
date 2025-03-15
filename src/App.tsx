@@ -4,6 +4,7 @@ import { RandomOO } from "./p5-sketch/RandomOO.tsx";
 import { RecursiveLine } from "./p5-sketch/RecursiveLine.tsx";
 import { RepetitionNoise } from "./p5-sketch/RepetitionNoise.tsx";
 import { Rotate } from "./p5-sketch/Rotate.tsx";
+import { SpiralWords } from "./p5-sketch/SpiralWords.tsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <LineCircle />
             <RandomOO />
             <RepetitionNoise />
+            <SpiralWords />
         </>
     );
 }
